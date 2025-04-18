@@ -15,10 +15,11 @@ const resultado = fuse.search(searchValue);
 const container = document.getElementById("result");
 
 for (const res of resultado) {
-  const { ingredientes } = res.item;
+  const { titulo } = res.item;
 
   const div = document.createElement("div");
-  div.textContent = ingredientes;
+  div.textContent = titulo;
+  div.className = "w-40 h-50 outline-1 rounded"
 
   container.appendChild(div)
 }

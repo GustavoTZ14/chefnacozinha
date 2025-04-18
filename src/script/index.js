@@ -6,7 +6,7 @@ frm.addEventListener("submit", (e) => {
   const query = document.getElementById("inSearch").value.trim();
 
   if (query) {
-    window.location.href = `search/?q=${encodeURIComponent(query)}`
+    window.location.href = `/search/?q=${encodeURIComponent(query)}`
   }
 })
 
