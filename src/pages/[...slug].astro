@@ -1,0 +1,18 @@
+---
+import Layout from "../layouts/Layout.astro";
+import "../styles/global.css";
+export const prerender = false;
+import receitas from "../Dados/receitas.json";
+
+const { slug } = Astro.params;
+const receita = receitas.find((receitas) => receitas.slug === slug);
+if(!receita) return Astro.redirect("/404");
+const { titulo, ingredientes } = receita;
+
+---
+<Layout titulo={titulo}>
+  <h1>{titulo}</h1>
+  <div>
+    <ul id="list">{ingredientes.map(item => <li>{item}</li>)}</ul>
+  </div>
+</Layout>

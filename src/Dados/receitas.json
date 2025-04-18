@@ -1,0 +1,27 @@
+[
+  {
+    "slug": "undefined",
+    "titulo": "Site de Receitas"
+  },
+  {
+    "slug": "receitas",
+    "titulo": "todas as receitas"
+  },
+  {
+    "slug": "receitas/pao-doce",
+    "titulo": "Pao Doce",
+    "ingredientes": [
+      "farinha",
+      "agua",
+      "ovo",
+      "fermento"
+    ],
+    "preparo": [
+      "coloque a farinha",
+      "depois a agua",
+      "o fermento",
+      "e cozinhe"
+    ],
+    "diretorio": "/categorias/doces/pao-doce"
+  }
+]

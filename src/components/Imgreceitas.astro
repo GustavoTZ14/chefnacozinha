@@ -1,0 +1,18 @@
+---
+import { ImageMetadata } from "astro";
+import { Image } from "astro:assets";
+
+interface props {
+  imagePath: string;
+  altText: string;
+  carregaImg: string;
+}
+
+const { imagePath, altText, carregaImg } = Astro.props;
+const images = import.meta.glob <{ default: ImageMetadata }>("/src/assets/*.{webp, jpeg, jpg, png, gif}");
+
+if(!images[imagePath]) throw new Error(`"${imagePath}" não existe no glob: "src/assets/*.{webp}"`)
+---
+<div>
+  <Image src={images[imagePath]()} alt={altText} loading={carregaImg}>
+</div>
