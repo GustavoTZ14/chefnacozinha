@@ -1,14 +1,18 @@
 ---
+import type { GetStaticPaths } from "astro";
 import Layout from "../layouts/Layout.astro";
 import "../styles/global.css";
-export const prerender = false;
 import receitas from "../Dados/receitas.json";
 
-const { slug } = Astro.params;
-const receita = receitas.find((receitas) => receitas.slug === slug);
-if(!receita) return Astro.redirect("/404");
-const { titulo, ingredientes } = receita;
-
+export async function getStaticPaths(){
+  return receitas.map(({slug, titulo, ingredientes}) =>{
+    return {
+      params: { slug },
+      props: { titulo, ingredientes },
+    };
+  })
+}
+const { titulo, ingredientes } = Astro.props;
 ---
 <Layout titulo={titulo}>
   <h1>{titulo}</h1>

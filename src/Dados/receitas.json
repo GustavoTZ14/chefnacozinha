@@ -1,15 +1,8 @@
 [
   {
-    "slug": "undefined",
-    "titulo": "Site de Receitas"
-  },
-  {
-    "slug": "receitas",
-    "titulo": "todas as receitas"
-  },
-  {
     "slug": "receitas/pao-doce",
     "titulo": "Pao Doce",
+    "categoria": "Doce",
     "ingredientes": [
       "farinha",
       "agua",

@@ -2,6 +2,7 @@
 import "../styles/global.css";
 import HeadTitle from "../components/HeadTitle.astro";
 const { titulo } = Astro.props;
+import Categorias from "../components/Categorias.astro";
 ---
 <!doctype html>
 <html lang="en" class="m-0 w-full h-full">
@@ -13,6 +14,16 @@ const { titulo } = Astro.props;
 		<HeadTitle titulo={titulo}>
 	</head>
 	<body class="m-0 w-full h-full">
+		<header class="flex p-5 justify-between">
+			<div>
+				Logo
+			</div>
+			<form class="outline-1 border-black-500 rounded w-100 flex">
+				<input type="text" id="inSearch" placeholder="Pesquise por receitas ..." class="w-full p-1 outline-none">
+				<button type="submit" id="btSearch" class="w-10">P</button>
+			</form>
+		</header>
+		<Categorias/>
 		<slot />
 	</body>
 </html>

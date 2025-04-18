@@ -1,0 +1,9 @@
+---
+import receitas from "../Dados/receitas.json";
+
+---
+<div>
+  <ul>
+    {receitas.map(item => <li>{item.categoria}</li>)}
+  </ul>
+</div>
