@@ -2,7 +2,8 @@
   {
     "slug": "receitas/pao-doce",
     "titulo": "Pao Doce",
-    "categoria": "Doce",
+    "SlugCategoria": "Doces",
+    "categoria": "Doces",
     "ingredientes": [
       "farinha",
       "agua",
@@ -15,6 +16,63 @@
       "o fermento",
       "e cozinhe"
     ],
-    "diretorio": "/categorias/doces/pao-doce"
+    "linkReceita": "/receitas/pao-doce"
+  },
+  {
+    "slug": "receitas/batata-recheada",
+    "titulo": "Batata Recheada",
+    "SlugCategoria": "Acompanhamentos",
+    "categoria": "Acompanhamentos",
+    "ingredientes": [
+      "farinha",
+      "agua",
+      "ovo",
+      "fermento"
+    ],
+    "preparo": [
+      "coloque a farinha",
+      "depois a agua",
+      "o fermento",
+      "e cozinhe"
+    ],
+    "linkReceita": "/receitas/batata-recheada"
+  },
+  {
+    "slug": "receitas/biscoito-de-polvilho",
+    "titulo": "Biscoito de Polvilho",
+    "SlugCategoria": "Biscoitos",
+    "categoria": "Biscoitos",
+    "ingredientes": [
+      "farinha",
+      "agua",
+      "ovo",
+      "fermento"
+    ],
+    "preparo": [
+      "coloque a farinha",
+      "depois a agua",
+      "o fermento",
+      "e cozinhe"
+    ],
+    "linkReceita": "/receitas/biscoito-de-polvilho"
+  },
+  {
+    "slug": "receitas/biscoito-de-chocolate",
+    "titulo": "Biscoito de Chocolate",
+    "SlugCategoria": "Biscoitos",
+    "categoria": "Biscoitos",
+    "ingredientes": [
+      "farinha",
+      "agua",
+      "ovo",
+      "fermento"
+    ],
+    "preparo": [
+      "coloque a farinha",
+      "depois a agua",
+      "o fermento",
+      "e cozinhe"
+    ],
+    "linkReceita": "/receitas/biscoito-de-chocolate"
   }
 ]

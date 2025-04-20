@@ -1,8 +1,9 @@
 ---
 import "../styles/global.css";
 import HeadTitle from "../components/HeadTitle.astro";
-const { titulo } = Astro.props;
+const { title } = Astro.props;
 import Categorias from "../components/Categorias.astro";
+import receitas from "../Dados/receitas.json";
 ---
 <!doctype html>
 <html lang="pt-BR" class="m-0 w-full h-full">
@@ -11,12 +12,12 @@ import Categorias from "../components/Categorias.astro";
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
-		<HeadTitle titulo={titulo}>
+		<HeadTitle titulo={title}>
 	</head>
 	<body class="m-0 w-full h-full">
 		<header class="flex p-5 justify-between">
 			<div>
-				Logo
+				<a href="/">LOGO</a>
 			</div>
 			<form class="outline-1 border-black-500 rounded w-100 flex" id="inForm">
 				<input type="text" id="inSearch" placeholder="Pesquise por receitas ..." class="w-full p-1 outline-none">
@@ -24,7 +25,9 @@ import Categorias from "../components/Categorias.astro";
 			</form>
 		</header>
 		<Categorias/>
-		<slot />
+		<div class="px-8 py-8">
+			<slot />
+		</div>
 		<script src="../script/index.js"></script>
 	</body>
 </html>

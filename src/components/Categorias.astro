@@ -1,9 +1,11 @@
 ---
 import receitas from "../Dados/receitas.json";
-
+import "../styles/global.css";
 ---
 <div>
-  <ul>
-    {receitas.map(item => <li>{item.categoria}</li>)}
+  <ul class="flex gap-5 justify-center">
+    <li><a href="/categorias/Doces">Doces</a></li>
+    <li><a href="/categorias/Acompanhamentos">Acompanhamentos</a></li>
+    <li><a href="/categorias/Biscoitos">Biscoitos</a></li>
   </ul>
 </div>
