@@ -3,7 +3,6 @@ import "../styles/global.css";
 import HeadTitle from "../components/HeadTitle.astro";
 const { title } = Astro.props;
 import Categorias from "../components/Categorias.astro";
-import receitas from "../Dados/receitas.json";
 ---
 <!doctype html>
 <html lang="pt-BR" class="m-0 w-full h-full">
@@ -25,7 +24,7 @@ import receitas from "../Dados/receitas.json";
 			</form>
 		</header>
 		<Categorias/>
-		<div class="px-8 py-8">
+		<div class="p-5">
 			<slot />
 		</div>
 		<script src="../script/index.js"></script>
