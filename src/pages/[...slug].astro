@@ -3,6 +3,7 @@ import type { GetStaticPaths } from "astro";
 import Layout from "../layouts/Layout.astro";
 import "../styles/global.css";
 import receitas from "../Dados/receitas.json";
+import Compartilhamento from "../components/Compartilhamento.astro";
 
 export async function getStaticPaths(){
   return receitas.map(({slug, titulo, ingredientes}) =>{
@@ -14,9 +15,10 @@ export async function getStaticPaths(){
 }
 const { titulo, ingredientes } = Astro.props;
 ---
-<Layout titulo={titulo}>
+<Layout title={titulo}>
   <h1>{titulo}</h1>
   <div>
     <ul id="list">{ingredientes.map(item => <li>{item}</li>)}</ul>
   </div>
+<Compartilhamento/>
 </Layout>

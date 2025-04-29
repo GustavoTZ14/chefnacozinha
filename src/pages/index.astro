@@ -1,11 +1,11 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import receitas from "../Dados/receitas.json";
+import "../styles/global.css";
 ---
 
-<Layout titulo="inicio">
+<Layout title="inicio">
 	<div class="flex gap-5 flex-wrap">
 		{receitas.map(item => <div class="w-80 h-80 rounded outline-1 p-2 grow basis-90"><a href={item.linkReceita}>{item.titulo}</a></div>)}
 	</div>
-	<script src="../script/carrossel.js"></script>
 </Layout>

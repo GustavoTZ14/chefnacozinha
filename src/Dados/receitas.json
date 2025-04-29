@@ -2,7 +2,6 @@
   {
     "slug": "receitas/pao-doce",
     "titulo": "Pao Doce",
-    "SlugCategoria": "Doces",
     "categoria": "Doces",
     "ingredientes": [
       "farinha",
@@ -21,7 +20,6 @@
   {
     "slug": "receitas/batata-recheada",
     "titulo": "Batata Recheada",
-    "SlugCategoria": "Acompanhamentos",
     "categoria": "Acompanhamentos",
     "ingredientes": [
       "farinha",
@@ -40,7 +38,6 @@
   {
     "slug": "receitas/biscoito-de-polvilho",
     "titulo": "Biscoito de Polvilho",
-    "SlugCategoria": "Biscoitos",
     "categoria": "Biscoitos",
     "ingredientes": [
       "farinha",
@@ -59,7 +56,6 @@
   {
     "slug": "receitas/biscoito-de-chocolate",
     "titulo": "Biscoito de Chocolate",
-    "SlugCategoria": "Biscoitos",
     "categoria": "Biscoitos",
     "ingredientes": [
       "farinha",

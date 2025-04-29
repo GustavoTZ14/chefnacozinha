@@ -5,16 +5,16 @@ import "../../styles/global.css";
 import receitas from "../../Dados/receitas.json";
 
 export async function getStaticPaths(){
-  return receitas.map(({SlugCategoria}) =>{
+  return receitas.map(({categoria}) =>{
     return {
-      params: { SlugCategoria },
+      params: { categoria },
     };
   })
 }
-const { SlugCategoria } = Astro.params;
-const filterReceitas = receitas.filter(item => item.SlugCategoria === SlugCategoria)
+const { categoria } = Astro.params;
+const filterReceitas = receitas.filter(item => item.categoria === categoria)
 ---
-<Layout titulo={SlugCategoria}>
+<Layout title={categoria}>
   <div class="flex gap-5">
     {filterReceitas.map(item => <div class="outline-1 rounded w-100 h-50"><a href={item.linkReceita}>{item.titulo}</a></div>)}
   </div>
