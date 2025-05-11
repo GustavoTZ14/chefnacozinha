@@ -1,24 +1,24 @@
 ---
 import type { GetStaticPaths } from "astro";
 import Layout from "../layouts/Layout.astro";
-import "../styles/global.css";
-import receitas from "../Dados/receitas.json";
 import Compartilhamento from "../components/Compartilhamento.astro";
+import "../styles/global.css";
 
-export async function getStaticPaths(){
-  return receitas.map(({slug, titulo, ingredientes}) =>{
-    return {
-      params: { slug },
-      props: { titulo, ingredientes },
-    };
-  })
-}
-const { titulo, ingredientes } = Astro.props;
+export const getStaticPaths: GetStaticPaths = async () => {
+  const res = await fetch('http://localhost:4321/API/receitas'); // URL absoluta em build
+  const receitas = await res.json();
+
+return receitas.map(({ slug, nome, id }) => ({
+    params: { slug },
+    props: { nome, id },
+  }));
+};
+
+const { nome, id } = Astro.props;
 ---
-<Layout title={titulo}>
-  <h1>{titulo}</h1>
-  <div>
-    <ul id="list">{ingredientes.map(item => <li>{item}</li>)}</ul>
-  </div>
-<Compartilhamento/>
+
+<Layout title={nome}>
+  <h1>{nome}</h1>
+  <h1>{id}</h1>
+  <Compartilhamento />
 </Layout>
