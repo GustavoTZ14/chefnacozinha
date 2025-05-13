@@ -2,20 +2,25 @@
 import type { GetStaticPaths } from "astro";
 import Layout from "../../layouts/Layout.astro";
 import "../../styles/global.css";
-import receitas from "../../Dados/receitas.json";
+
+const resp = await fetch('http://localhost:4321/API/receitas');
+const receitas = await resp.json();
 
 export async function getStaticPaths(){
-  return receitas.map(({categoria}) =>{
+const res = await fetch('http://localhost:4321/API/ingr');
+const ingrediente = await res.json();
+
+return ingrediente.map(({categoria}) =>{
     return {
-      params: { categoria },
+params: { categoria },
     };
   })
 }
 const { categoria } = Astro.params;
-const filterReceitas = receitas.filter(item => item.categoria === categoria)
+const filtReceitas = receitas.filter(item => item.categoria === categoria)
 ---
 <Layout title={categoria}>
   <div class="flex gap-5">
-    {filterReceitas.map(item => <div class="outline-1 rounded w-100 h-50"><a href={item.linkReceita}>{item.titulo}</a></div>)}
+    {filtReceitas.map((element) => <div class="w-80 h-80 rounded outline-1 p-2 grow basis-80"><a href=`/${element.slug}`>{element.title}</a></div>)}
   </div>
 </Layout>

@@ -8,6 +8,6 @@ const receitas = await res.json();
 
 <Layout title="inicio">
 	<div class="flex gap-5 flex-wrap">
-		{receitas.map(item => <div class="w-80 h-80 rounded outline-1 p-2 grow basis-90"><a href={item.slug}>{item.nome}</a></div>)}
+		{receitas.map((element) => <div class="w-80 h-80 rounded outline-1 p-2 grow basis-80"><a href={element.slug}>{element.title}</a></div>)}
 	</div>
 </Layout>
