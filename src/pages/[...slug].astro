@@ -3,14 +3,26 @@ import type { GetStaticPaths } from "astro";
 import Layout from "../layouts/Layout.astro";
 import "../styles/global.css";
 
-const resp = await fetch('http://localhost:4321/API/ingr');
-const ingredientes = await resp.json();
+interface TabelaCompleta {
+  receita_id: number;
+  lista: string;
+}
+
+const resp = await fetch('http://localhost:4321/API/tableComplete');
+const tabelaCompleta: TabelaCompleta[] = await resp.json();
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const res = await fetch('http://localhost:4321/API/receitas'); // URL absoluta em build
-  const receitas = await res.json();
 
-return receitas.map(({ slug, title, id }) => ({
+interface TabelaTitulo {
+  slug: string;
+  title: string;
+  id: number;
+}
+
+const res = await fetch('http://localhost:4321/API/tableTitle'); // URL absoluta em build
+const tabelaTitulos: TabelaTitulo[] = await res.json();
+
+return tabelaTitulos.map(({ slug, title, id }) => ({
     params: { slug },
     props: { title, id },
   }));
@@ -18,13 +30,13 @@ return receitas.map(({ slug, title, id }) => ({
 
 const { title, id } = Astro.props;
 
-const listaIngrediente = ingredientes.filter(item => item.receita_id === id);
+const filtID = tabelaCompleta.filter(({receita_id}) => receita_id === id);
 ---
 
 <Layout title={title}>
   <h1 class="font-bold mb-5">{title}</h1>
   <h4 class="font-bold mb-2">Ingredientes:</h4>
   <ul>
-    {listaIngrediente.map(item => <li>{item.lista}</li>)}
+    {filtID.map(({lista}) => <li>{lista}</li>)}
   </ul>
 </Layout>

@@ -3,24 +3,35 @@ import type { GetStaticPaths } from "astro";
 import Layout from "../../layouts/Layout.astro";
 import "../../styles/global.css";
 
-const resp = await fetch('http://localhost:4321/API/receitas');
-const receitas = await resp.json();
+interface TabelaTitulo {
+categoria: string;
+slug: string;
+title: string;
+}
+
+const resp = await fetch('http://localhost:4321/API/tableTitle');
+const tabelaTitulo: TabelaTitulo[] = await resp.json();
 
 export async function getStaticPaths(){
-const res = await fetch('http://localhost:4321/API/ingr');
-const ingrediente = await res.json();
 
-return ingrediente.map(({categoria}) =>{
+interface TabelaCompleta {
+categoria: string;
+}
+
+const res = await fetch('http://localhost:4321/API/tableComplete');
+const tabelaCompleta: TabelaCompleta[] = await res.json();
+
+return tabelaCompleta.map(({categoria}) =>{
     return {
-params: { categoria },
+      params: { categoria },
     };
   })
 }
 const { categoria } = Astro.params;
-const filtReceitas = receitas.filter(item => item.categoria === categoria)
+const filtReceitas = tabelaTitulo.filter(item => item.categoria === categoria)
 ---
 <Layout title={categoria}>
   <div class="flex gap-5">
-    {filtReceitas.map((element) => <div class="w-80 h-80 rounded outline-1 p-2 grow basis-80"><a href=`/${element.slug}`>{element.title}</a></div>)}
+    {filtReceitas.map(({slug, title}) => <div class="w-80 h-80 rounded outline-1 p-2 grow basis-80"><a href=`/${slug}`>{title}</a></div>)}
   </div>
 </Layout>

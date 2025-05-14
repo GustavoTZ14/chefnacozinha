@@ -2,12 +2,17 @@
 import Layout from '../layouts/Layout.astro';
 import "../styles/global.css";
 
-const res = await fetch('http://localhost:4321/API/receitas')
-const receitas = await res.json();
+interface TabelaTitulo {
+	slug: string;
+	title: string;
+}
+
+const res = await fetch('http://localhost:4321/API/tableTitle')
+const tabelaTitulo: TabelaTitulo[] = await res.json();
 ---
 
 <Layout title="inicio">
 	<div class="flex gap-5 flex-wrap">
-		{receitas.map((element) => <div class="w-80 h-80 rounded outline-1 p-2 grow basis-80"><a href={element.slug}>{element.title}</a></div>)}
+		{tabelaTitulo.map(({slug, title}) => <div class="w-80 h-80 rounded outline-1 p-2 grow basis-80"><a href={slug}>{title}</a></div>)}
 	</div>
 </Layout>
