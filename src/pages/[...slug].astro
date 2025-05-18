@@ -5,7 +5,7 @@ import "../styles/global.css";
 
 interface TabelaCompleta {
   receita_id: number;
-  lista: string;
+  ingrediente: string;
 }
 
 const resp = await fetch('http://localhost:4321/API/tableComplete');
@@ -15,28 +15,28 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
 interface TabelaTitulo {
   slug: string;
-  title: string;
+  titulo: string;
   id: number;
 }
 
 const res = await fetch('http://localhost:4321/API/tableTitle'); // URL absoluta em build
 const tabelaTitulos: TabelaTitulo[] = await res.json();
 
-return tabelaTitulos.map(({ slug, title, id }) => ({
+return tabelaTitulos.map(({ slug, titulo, id }) => ({
     params: { slug },
-    props: { title, id },
+    props: { titulo, id },
   }));
 };
 
-const { title, id } = Astro.props;
+const { titulo, id } = Astro.props;
 
 const filtID = tabelaCompleta.filter(({receita_id}) => receita_id === id);
 ---
 
-<Layout title={title}>
-  <h1 class="font-bold mb-5">{title}</h1>
+<Layout title={titulo}>
+  <h1 class="font-bold mb-5">{titulo}</h1>
   <h4 class="font-bold mb-2">Ingredientes:</h4>
   <ul>
-    {filtID.map(({lista}) => <li>{lista}</li>)}
+    {filtID.map(({ingrediente}) => <li>{ingrediente}</li>)}
   </ul>
 </Layout>

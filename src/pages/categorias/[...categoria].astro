@@ -6,7 +6,7 @@ import "../../styles/global.css";
 interface TabelaTitulo {
 categoria: string;
 slug: string;
-title: string;
+titulo: string;
 }
 
 const resp = await fetch('http://localhost:4321/API/tableTitle');
@@ -32,6 +32,6 @@ const filtReceitas = tabelaTitulo.filter(item => item.categoria === categoria)
 ---
 <Layout title={categoria}>
   <div class="flex gap-5">
-    {filtReceitas.map(({slug, title}) => <div class="w-80 h-80 rounded outline-1 p-2 grow basis-80"><a href=`/${slug}`>{title}</a></div>)}
+    {filtReceitas.map(({slug, titulo}) => <div class="w-80 h-80 rounded outline-1 p-2 grow basis-80"><a href=`/${slug}`>{titulo}</a></div>)}
   </div>
 </Layout>

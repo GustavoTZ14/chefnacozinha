@@ -1,13 +1,16 @@
 ---
 import "../styles/global.css";
+import { Font } from "astro:assets";
 ---
-<header class="flex p-5 justify-between">
+<Font cssVariable='--font-tangerine' preload/>
+
+<header class="flex p-5 justify-around">
 	<div>
-		<a href="/">LOGO</a>
+		<a href="/" class="font-sans text-[35px]">Chefnacozinha.com</a>
 	</div>
-	<form class="outline-1 border-black-500 rounded w-100 flex" id="inForm">
+	<form class="outline-1 border-black-500 rounded w-100 h-10 flex" id="inForm">
 		<input type="text" id="inSearch" placeholder="Pesquise por receitas ..." class="w-full p-1 outline-none font-serif">
-		<button type="submit" id="btSearch" class="w-10 cursor-pointer">P</button>
+		<button type="submit" id="btSearch" class="w-12 cursor-pointer bg-gray-500 hover:bg-gray-400 text-white">P</button>
 	</form>
 	<script>
 	const frm = document.querySelector("form");
