@@ -1,6 +1,6 @@
 import Fuse from 'fuse.js';
 
-const res = await fetch('http://localhost:4321/API/tableTitle');
+const res = await fetch('/API/tableTitle');
 const tabelaTitulos = await res.json();
 
 interface Receita {

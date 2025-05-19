@@ -8,7 +8,7 @@ interface TabelaTitulo {
 	categoria: string;
 }
 
-const res = await fetch('http://localhost:4321/API/tableTitle');
+const res = await fetch('/API/tableTitle');
 const tabelaTitulo: TabelaTitulo[] = await res.json();
 ---
 

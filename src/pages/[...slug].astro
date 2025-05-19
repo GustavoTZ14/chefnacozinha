@@ -8,7 +8,7 @@ interface TabelaCompleta {
   ingrediente: string;
 }
 
-const resp = await fetch('http://localhost:4321/API/tableComplete');
+const resp = await fetch('/API/tableComplete');
 const tabelaCompleta: TabelaCompleta[] = await resp.json();
 
 export const getStaticPaths: GetStaticPaths = async () => {
@@ -19,7 +19,7 @@ interface TabelaTitulo {
   id: number;
 }
 
-const res = await fetch('http://localhost:4321/API/tableTitle'); // URL absoluta em build
+const res = await fetch('/API/tableTitle'); // URL absoluta em build
 const tabelaTitulos: TabelaTitulo[] = await res.json();
 
 return tabelaTitulos.map(({ slug, titulo, id }) => ({
